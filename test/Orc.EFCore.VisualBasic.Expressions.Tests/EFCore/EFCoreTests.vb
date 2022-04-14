@@ -84,19 +84,6 @@ Public NotInheritable Class EFCoreTests
     End Sub
 
     <Fact>
-    Public Sub NullableValueComparaison_MethodSyntaxWork3()
-        Using context = GetContext()
-            Dim Query = From b In context.Blogs
-                        Where b.Rating = 5
-
-            Log(Query)
-            Dim Result = Query.ToList()
-            Assert.Single(Result)
-            Assert.DoesNotContain("COALESCE", Query.ToQueryString())
-        End Using
-    End Sub
-
-    <Fact>
     Public Sub NullableValueComparaisonWork()
         Using context = GetContext()
             Dim Query = context.Blogs.
